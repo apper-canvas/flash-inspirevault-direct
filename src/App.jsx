@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
@@ -42,9 +42,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
-              whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-              transition={{ duration: 0.5 }}
-              className="text-primary-dark dark:text-primary-light"
           <Route path="/contact" element={<Contact />} /> 
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -57,18 +54,22 @@ function App() {
             <span className="text-xs">Home</span>
           </Link>
           <button className="flex flex-col items-center justify-center gap-1 text-surface-600 dark:text-surface-400">
-        </div>
-      </nav>
-            <User size={20} />
             <SearchIcon size={20} />
+            <span className="text-xs">Search</span>
+          </button>
+          <button className="flex flex-col items-center justify-center gap-1 text-surface-600 dark:text-surface-400">
+            <BookmarkPlusIcon size={20} />
+            <span className="text-xs">Save</span>
+          </button>
+          <button className="flex flex-col items-center justify-center gap-1 text-surface-600 dark:text-surface-400">
+            <UserIcon size={20} />
+            <span className="text-xs">Profile</span>
           </button>
         </div>
       </nav>
-            <BookmarkPlusIcon size={20} />
       <footer className="bg-surface-100 dark:bg-surface-800 border-t border-surface-200 dark:border-surface-700 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <UserIcon size={20} />
               <div className="flex items-center gap-2 mb-2">
                 <h2 className="text-lg font-bold">
                   <span className="text-primary-dark dark:text-primary-light">Inspire</span>
