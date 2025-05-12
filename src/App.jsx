@@ -8,6 +8,9 @@ import getIcon from './utils/iconUtils';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
+import Privacy from './pages/Privacy';
+import Contact from './pages/Contact';
+
 function App() {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem('darkMode') === 'true' || 
@@ -79,6 +82,8 @@ function App() {
       <main className="flex-grow container mx-auto px-4 pt-24 pb-20">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
@@ -103,6 +108,28 @@ function App() {
           </button>
         </div>
       </nav>
+
+      <footer className="bg-surface-100 dark:bg-surface-800 border-t border-surface-200 dark:border-surface-700 py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <div className="flex items-center gap-2 mb-2">
+                <h2 className="text-lg font-bold">
+                  <span className="text-primary-dark dark:text-primary-light">Inspire</span>
+                  <span>Vault</span>
+                </h2>
+              </div>
+              <p className="text-sm text-surface-600 dark:text-surface-400">
+                Save and organize inspirational content from around the web
+              </p>
+            </div>
+            <div className="flex gap-6">
+              <a href="/privacy" className="text-surface-600 dark:text-surface-400 hover:text-primary dark:hover:text-primary-light transition-colors">Privacy Policy</a>
+              <a href="/contact" className="text-surface-600 dark:text-surface-400 hover:text-primary dark:hover:text-primary-light transition-colors">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </footer>
       
       <ToastContainer
         position="bottom-right"
